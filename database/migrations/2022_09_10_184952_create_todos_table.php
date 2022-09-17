@@ -16,8 +16,8 @@ class CreateTodosTable extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 20);
-            $table->int('user_id');
-            $table->int('tag_id');
+            $table->integer('user_id')->nullable();
+            $table->integer('tag_id');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });

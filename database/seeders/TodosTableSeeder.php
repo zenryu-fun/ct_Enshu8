@@ -16,26 +16,31 @@ class TodosTableSeeder extends Seeder
     {
         $param = [
             'name' => '起床',
+            'user_id' => 1,
             'tag_id' => 1,
         ];
         Todo::create($param);
         $param = [
             'name' => '出勤',
+            'user_id' => 1,            
             'tag_id' => 5,
         ];
         Todo::create($param);
         $param = [
             'name' => '昼休憩',
+            'user_id' => 1,
             'tag_id' => 4,
         ];
         Todo::create($param);
         $param = [
             'name' => '退勤',
+            'user_id' => 1,
             'tag_id' => 5,
         ];
         Todo::create($param);
         $param = [
             'name' => '就寝',
+            'user_id' => 1,
             'tag_id' => 1,
         ];
         Todo::create($param);
