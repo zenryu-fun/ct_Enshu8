@@ -79,8 +79,9 @@
               <form action="/delete" method="post">
                 <td>
                   @csrf
-                  <input type="hidden" name="name" value={{$todo->name}}>
                   <input type="hidden" name="id" value={{$todo->id}}>
+                  <input type="hidden" name="name" value={{$todo->name}}>
+                  <input type="hidden" name="tag_id" value={{$todo->tag_id}}>
                   <button class="button-delete">削除</button>
                 </td>
               </form>

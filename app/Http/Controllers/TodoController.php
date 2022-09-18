@@ -13,8 +13,8 @@ class TodoController extends Controller
     public function index()
     {
         $tags = Tag::all();
-        $todos = Todo::all();
         $users = Auth::user();
+        $todos = Todo::where('user_id', $users->id)->get();
         return view('todolist', ['todos' => $todos,'tags' => $tags, 'users' => $users]);
     }   
 

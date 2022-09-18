@@ -20,19 +20,26 @@ class SearchController extends Controller
 
         //名前タグnull
         if ($name == null and $tag_id == null) {
-          $todos = Todo::all();
+          $todos = Todo::where('user_id', $users->id)->get();
         
         //名前null            
         } else if ($name == null) {
-          $todos = Todo::where('tag_id',$tag_id)->get();
+          $todos = Todo::where('user_id', $users->id)
+                        ->where('tag_id',$tag_id)
+                        ->get();
         
         //タグnull
         } else if ($tag_id == null) {
-          $todos = Todo::where('name', "like" ,"%".$name."%")->get();
-        
+          $todos = Todo::where('user_id', $users->id)
+                        ->where('name', "like" ,"%".$name."%")
+                        ->get();
+
         //名前タグあり
         } else {
-          $todos = Todo::where('name', "like", "%".$name."%")->where('tag_id',$tag_id)->get();
+          $todos = Todo::where('user_id', $users->id)
+                        ->where('name', "like", "%".$name."%")
+                        ->where('tag_id',$tag_id)
+                        ->get();
         }
         
         return view('search', ['todos' => $todos,'tags' => $tags, 'users' => $users]);
